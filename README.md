@@ -2,12 +2,24 @@
 
 ![Github Actions Status](https://github.com/ianhi/jupyterlab_vim-system-clipboard-support/workflows/Build/badge.svg)
 
-Add support for using system clipboard to jlab vim
+Adds support for yanking to using system clipboard using the registers `*` and `+`. This will affect both the builtin fileeditor and [jupyterlab_vim](https://github.com/jwkvam/jupyterlab-vim)
+
+## Compatible browsers:
+Firefox >= 63  
+Chrome >= 66  
+Edge >= 79  
+Opera >= 53
+
+See:
+https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText#Browser_compatibility
+This will only work on browsers that have implemented the writeText method
+of the clipboardAPI. Currently only supports yanking to 
 
 
 ## Requirements
 
-* JupyterLab >= 1.0
+* JupyterLab >= 1.0  
+It will also work with jupyterlab=2
 
 ## Install
 
@@ -16,6 +28,8 @@ jupyter labextension install jupyterlab_vim-system-clipboard-support
 ```
 
 ## Contributing
+Currently this doesn't support pasting from the `*` or `+` registers. This can be added by adding the paste
+function in a similar manner to the yank function. A starting point is the paste function in codemirror/keymap/vim.js found [here](https://github.com/codemirror/CodeMirror/blob/7afb2d7e0c0759817c2eaa61345ca2ece5152fcc/keymap/vim.js#L2563). Unfortunately per https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/readText#Browser_compatibility this will not work on Firefox as it does not expose the `clipboard.readText` api outside of browser extensions.
 
 ### Install
 
