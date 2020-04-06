@@ -33,7 +33,7 @@ export function yankGenerator(registerController: any){
   if (['+', '*'].indexOf(args.registerName) !== -1) {
     navigator.clipboard.writeText(text).catch(err => {
       // This can happen if the user denies clipboard permissions:
-      // or if using firefox
+      // or if using safari
       console.error('Could not copy text: ', err);
     });
     cm.focus()

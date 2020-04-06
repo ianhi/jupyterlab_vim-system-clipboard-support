@@ -5,7 +5,8 @@
 Adds support for yanking to using system clipboard using the registers `*` and `+`. This will affect both the builtin fileeditor and [jupyterlab_vim](https://github.com/jwkvam/jupyterlab-vim)
 
 ## Usage:
-Running `"*y` or `"+y"` will yank to the vim registers used by jupyterlab and populate the system clipboard with the yanked text. This extension does not distinguish between the system `*` and `+` registers on 
+Running `"*y` or `"+y"` will yank to the vim registers used by jupyterlab and populate the system clipboard with the yanked text. Note that it does not distinguish between the system `*` and `+` registers on which are often distinct on Linux.
+
 ## Compatible browsers:
 Firefox >= 63  
 Chrome >= 66  
