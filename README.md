@@ -47,8 +47,6 @@ The `jlpm` command is JupyterLab's pinned version of
 # Move to jupyterlab_vim-system-clipboard-support directory
 # Install dependencies
 jlpm
-# Build Typescript source
-jlpm build
 # Link your development version of the extension with JupyterLab
 jupyter labextension link .
 # Rebuild Typescript source after making changes
