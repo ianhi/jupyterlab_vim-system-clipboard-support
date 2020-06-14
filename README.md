@@ -2,7 +2,9 @@
 
 ![Github Actions Status](https://github.com/ianhi/jupyterlab_vim-system-clipboard-support/workflows/Build/badge.svg)
 
-Adds support for yanking to using system clipboard using the registers `*` and `+`. This will affect both the builtin fileeditor and [jupyterlab_vim](https://github.com/jwkvam/jupyterlab-vim)
+Adds support for yanking to using system clipboard using the registers `*` and `+`. This will affect both the builtin fileeditor and [jupyterlab_vim](https://github.com/axelfahy/jupyterlab-vim)
+
+I also recommend https://github.com/ianhi/jupyterlab-vimrc
 
 ## Usage:
 Running `"*y` or `"+y"` will yank to the vim registers used by jupyterlab and populate the system clipboard with the yanked text. Note that it does not distinguish between the system `*` and `+` registers on which are often distinct on Linux.
