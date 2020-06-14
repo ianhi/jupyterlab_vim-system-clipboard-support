@@ -23,25 +23,26 @@ function cursorMin(...args: any[]): any{
  * yank with system register copying enabled
  */
 
-export function yankGenerator(registerController: any){
+export function yankGenerator(registerController: any, unnamedplus: boolean){
   function yank(cm: any, args: any, ranges: any, oldAnchor: any) {
-  var vim = cm.state.vim;
-  var text = cm.getSelection();
-  var endPos = vim.visualMode
-    ? cursorMin(vim.sel.anchor, vim.sel.head, ranges[0].head, ranges[0].anchor)
-    : oldAnchor;
-  if (['+', '*'].indexOf(args.registerName) !== -1) {
-    navigator.clipboard.writeText(text).catch(err => {
-      // This can happen if the user denies clipboard permissions:
-      // or if using safari
-      console.error('Could not copy text: ', err);
-    });
-    cm.focus()
-  }
-  registerController.pushText(
-      args.registerName, 'yank',
-      text, args.linewise, vim.visualBlock);
-  return endPos;
+    var vim = cm.state.vim;
+    var text = cm.getSelection();
+    var endPos = vim.visualMode
+      ? cursorMin(vim.sel.anchor, vim.sel.head, ranges[0].head, ranges[0].anchor)
+      : oldAnchor;
+    const useUnamedplus = args.registerName === null && unnamedplus;
+    if (['+', '*'].indexOf(args.registerName) !== -1 || useUnamedplus) {
+      navigator.clipboard.writeText(text).catch(err => {
+        // This can happen if the user denies clipboard permissions:
+        // or if using safari
+        console.error('Could not copy text: ', err);
+      });
+      cm.focus()
+    }
+    registerController.pushText(
+        args.registerName, 'yank',
+        text, args.linewise, vim.visualBlock);
+    return endPos;
   }
   return yank
 }

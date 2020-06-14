@@ -1,0 +1,13 @@
+{
+  "title": "vim-system-clipboard",
+  "description": "Settings for yanking in vim",
+  "type": "object",
+  "properties": {
+    "unnamedplus": {
+      "type": "boolean",
+      "title": "set unnamedplus",
+      "description": "If true yanking without specifying a register will also yank to the system clipboard.",
+      "default": false
+    }
+  }
+}
