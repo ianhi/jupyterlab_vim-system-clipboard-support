@@ -51,7 +51,7 @@ The `jlpm` command is JupyterLab's pinned version of
 # Install dependencies
 jlpm
 # Link your development version of the extension with JupyterLab
-jupyter labextension link .
+jupyter labextension install .
 # Rebuild Typescript source after making changes
 jlpm build
 # Rebuild JupyterLab after making any changes
