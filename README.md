@@ -1,3 +1,5 @@
+# DEPRECATED - NOW included in: https://github.com/ianhi/jupyterlab-vimrc
+
 # jupyterlab_vim-system-clipboard-support
 
 ![Github Actions Status](https://github.com/ianhi/jupyterlab_vim-system-clipboard-support/workflows/Build/badge.svg)
